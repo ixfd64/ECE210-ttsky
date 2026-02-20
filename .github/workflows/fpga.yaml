@@ -4,6 +4,12 @@ on:
   push:
     # Comment out (or remove) the following line to run the FPGA workflow on every push:
     branches: none
+    paths-ignore:
+      - '**/*.md'
+      - '.vscode/**'
+      - 'assets/**'
+      - 'docs/**'
+      - 'LICENSE'
   workflow_dispatch:
 
 jobs:

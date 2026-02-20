@@ -2,6 +2,12 @@ name: gds
 
 on:
   push:
+    paths-ignore:
+      - '**/*.md'
+      - '.vscode/**'
+      - 'assets/**'
+      - 'docs/**'
+      - 'LICENSE'
   workflow_dispatch:
 
 jobs:
