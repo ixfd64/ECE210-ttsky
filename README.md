@@ -16,7 +16,7 @@ Each element is multiplied by a respective weight $w_i$ that determines its impo
 
 $$ y = f(\sum_{i = 1}^{n} w_ix_i + b) $$
 
-For binary classification models, the predicted class *y* is usually either $`\{ y : y \in \{-1, 1\}\}`$ or $`\{ y : y \in \{0, 1\}\}`$. We will use $`\{0, 1\}`$ for this project as it seems to be more common.
+For binary classification models, the predicted class *y* is usually either $`y \in \{-1, 1\}`$ or $`y \in \{0, 1\}`$. We will use $`\{0, 1\}`$ for this project as it seems to be more common.
 
 ## To use this code
 
