@@ -12,11 +12,11 @@ A perceptron is a type of artificial neuron used in binary classification models
 
 ![](assets/perceptron.png)
 
-Each element is multiplied by a respective weight $ w_i $ that determines its importance; all the $ w_ix_i $ terms are then added together to produce a weighted sum. A bias *b* is often added to the weighted sum to enable the model to better fit the data. This final product is passed through an activation function $ f(\cdot) $ that determines the final class:
+Each element is multiplied by a respective weight $w_i$ that determines its importance; all the $w_ix_i$ terms are then added together to produce a weighted sum. A bias *b* is often added to the weighted sum to enable the model to better fit the data. This final product is passed through an activation function $f(\cdot)$ that determines the final class:
 
 $$ y = f(\sum_{i = 1}^{n} w_ix_i + b) $$
 
-For binary classification models, the predicted class *y* is usually either $ \{ y : y \in \{-1, 1\}\} $ or $ \{ y : y \in \{0, 1\}\} $. We will use $ \{0, 1\} $ for this project as it seems to be more common.
+For binary classification models, the predicted class *y* is usually either $`\{ y : y \in \{-1, 1\}\}`$ or $`\{ y : y \in \{0, 1\}\}`$. We will use $`\{0, 1\}`$ for this project as it seems to be more common.
 
 ## To use this code
 
@@ -24,4 +24,4 @@ The code in this project can either be run as a standalone test called from othe
 
 ### Image credits
 
-* Perceptron diagram [[source](https://commons.wikimedia.org/wiki/File:Perceptron-unit.svg)] by Martin Thoma (CC0 1.0)
+* Perceptron diagram by Martin Thoma (CC0 1.0 license, see [source](https://commons.wikimedia.org/wiki/File:Perceptron-unit.svg))
