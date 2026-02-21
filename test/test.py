@@ -25,17 +25,11 @@ async def test_project(dut):
     dut.ui_in.value = 0
     dut.uio_in.value = 0
     dut.rst_n.value = 0
+
     await ClockCycles(dut.clk, 10)
     dut.rst_n.value = 1
 
     dut._log.info("Test project behavior")
-
-    # Set the input values you want to test
-    dut.ui_in.value = 20
-    dut.uio_in.value = 30
-
-    # Wait for one clock cycle to see the output values
-    await ClockCycles(dut.clk, 1)
 
     # run tests on perceptron
     dut.ena.value = 1
@@ -51,11 +45,12 @@ async def test_project(dut):
     assert (dut.uo_out.value.integer & 1) == 1, f"Test #1 failed: {dut.uo_out.value.integer}"
 
     # test case: zero sum
-    dut.ui_in.value = combine(-2, 2)
+    dut.ui_in.value = combine(0xE, 2)
     await Timer(1, units="ns")
     assert (dut.uo_out.value.integer & 1) == 0, f"Test #2 failed: {dut.uo_out.value.integer}"
 
     # test case: double negative multiplication
-    dut.ui_in.value = combine(-1, -1)
+    dut.ui_in.value = combine(0xF, 0xF)
     await Timer(1, units="ns")
     assert (dut.uo_out.value.integer & 1) == 1, f"Test #3 failed: {dut.uo_out.value.integer}"
+

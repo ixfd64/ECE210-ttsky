@@ -54,7 +54,4 @@ module tb();
     
   end
 
-  // avoid warnings about unused wires
-  wire _unused = &{clk, rst_n, ena};
-
 endmodule

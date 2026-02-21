@@ -12,13 +12,14 @@ module tt_um_perceptron (
   output [7:0] uio_oe
 );
 
-  // bidirectional devices
   assign uio_out = 8'b0;
   assign uio_oe  = 8'b0;
 
   // read inputs
-  wire signed [3:0] x1 = ui_in[3:0];
-  wire signed [3:0] x2 = ui_in[7:4];
+  wire signed [3:0] x1;
+  wire signed [3:0] x2;
+  assign x1 = ui_in[3:0];
+  assign x2 = ui_in[7:4];
 
   // assign weights and bias
   localparam signed [3:0] w1 = 4'sd2;
@@ -31,12 +32,12 @@ module tt_um_perceptron (
   wire signed [8:0] sum  = mac1 + mac2 + b;
 
   // activation function to determine predicted class
-  wire y = (sum >= 0);
+  wire y = (sum >= 0) ? 1'b1 : 1'b0;
 
   // return outputs
   assign uo_out = {7'b0, y};
 
   // avoid warnings about unused wires
-  wire _unused = &{uio_in, clk, rst_n, ena};
+  wire _unused = &{uio_in, clk, rst_n, ena, 1'b0};
 
 endmodule
