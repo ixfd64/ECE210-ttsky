@@ -12,9 +12,22 @@ module tb();
   wire [7:0] uo_out;
   wire [7:0] uio_out;
   wire [7:0] uio_oe;
+
+`ifdef GL_TEST
+  // needed for gate-level tests
+  wire VPWR = 1'b1;
+  wire VGND = 1'b0;
+`endif
   
   // initialize test object
   tt_um_perceptron dut (
+
+
+`ifdef GL_TEST
+    .VPWR(VPWR),
+    .VGND(VGND),
+`endif
+
     .ui_in(ui_in),
     .uo_out(uo_out),
     .uio_in(uio_in),
