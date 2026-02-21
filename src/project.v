@@ -1,27 +1,43 @@
-/*
- * Copyright (c) 2024 Your Name
- * SPDX-License-Identifier: Apache-2.0
- */
-
 `default_nettype none
 
-module tt_um_example (
-    input  wire [7:0] ui_in,    // Dedicated inputs
-    output wire [7:0] uo_out,   // Dedicated outputs
-    input  wire [7:0] uio_in,   // IOs: Input path
-    output wire [7:0] uio_out,  // IOs: Output path
-    output wire [7:0] uio_oe,   // IOs: Enable path (active high: 0=input, 1=output)
-    input  wire       ena,      // always 1 when the design is powered, so you can ignore it
-    input  wire       clk,      // clock
-    input  wire       rst_n     // reset_n - low to reset
+module tt_um_perceptron (
+  input  [7:0] ui_in,
+  input  [7:0] uio_in,
+  input        clk,
+  input        rst_n,
+  input        ena
+
+  output [7:0] uo_out,
+  output [7:0] uio_out,
+  output [7:0] uio_oe,
 );
 
-  // All output pins must be assigned. If not used, assign to 0.
-  assign uo_out  = ui_in + uio_in;  // Example: ou_out is the sum of ui_in and uio_in
-  assign uio_out = 0;
-  assign uio_oe  = 0;
+  // bidirectional devices
+  assign uio_out = 8'b0;
+  assign uio_oe  = 8'b0;
 
-  // List all unused inputs to prevent warnings
-  wire _unused = &{ena, clk, rst_n, 1'b0};
+  // read inputs
+  wire signed [3:0] x1 = ui_in[3:0];
+  wire signed [3:0] x2 = ui_in[7:4];
+
+  // assign weights and bias
+  localparam signed [3:0] w1 = 4'sd2;
+  localparam signed [3:0] w2 = -4'sd2;
+  localparam signed [8:0] b  = 9'sd1;
+  
+  // use multiply-accumulate operations to compute weighted sum
+  wire signed [7:0] mac1 = w1 * x1;
+  wire signed [7:0] mac2 = w2 * x2;
+  wire signed [8:0] sum  = mac1 + mac2 + b;
+
+  // activation function to determine predicted class
+  wire y = (sum >= 0);
+
+  // return outputs
+  assign uo_out[0]   = y;
+  assign uo_out[7:1] = 7'b0;
+
+  // avoid warnings about unused wires
+  wire _unused = &{uio_in, clk, rst_n, ena};
 
 endmodule

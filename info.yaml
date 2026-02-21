@@ -12,7 +12,7 @@ project:
   tiles: "1x1"
 
   # top module name must start with "tt_um_"
-  top_module:  "tt_um_example"
+  top_module:  "tt_um_perceptron"
 
   # files must match `PROJECT_SOURCES` in test/Makefile
   source_files:

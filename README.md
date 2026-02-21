@@ -4,6 +4,11 @@
 
 # Implemention of a two-input perceptron in Verilog
 
+* **Version:** 1.0.0-beta.1
+* **Author:** Danny Chia
+  * Project template by [Tiny Tapeout](https://tinytapeout.com)
+* **Date:** 2026-02-20
+
 This is a Verilog implementation of a perceptron with two inputs and two weights, created as part of an assignment for [ECE 210](https://catalog.ucsc.edu/en/current/general-catalog/courses/ece-electrical-and-computer-engineering/graduate/ece-210) at UC Santa Cruz during the winter 2026 quarter.
 
 ## Introduction to perceptrons
