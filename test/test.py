@@ -37,10 +37,7 @@ async def test_project(dut):
     # Wait for one clock cycle to see the output values
     await ClockCycles(dut.clk, 1)
 
-    # check perceptron output
-    #assert (dut.uo_out.value.integer & 1) == 1
-    #assert (dut.uo_out.value.integer & 1) == 0
-
+    # run tests on perceptron
     dut.ena.value = 1
     dut.rst_n.value = 1
     dut.ui_in.value = 0

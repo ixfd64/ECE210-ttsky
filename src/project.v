@@ -5,11 +5,11 @@ module tt_um_perceptron (
   input  [7:0] uio_in,
   input        clk,
   input        rst_n,
-  input        ena
+  input        ena,
 
   output [7:0] uo_out,
   output [7:0] uio_out,
-  output [7:0] uio_oe,
+  output [7:0] uio_oe
 );
 
   // bidirectional devices
@@ -34,8 +34,7 @@ module tt_um_perceptron (
   wire y = (sum >= 0);
 
   // return outputs
-  assign uo_out[0]   = y;
-  assign uo_out[7:1] = 7'b0;
+  assign uo_out = {7'b0, y};
 
   // avoid warnings about unused wires
   wire _unused = &{uio_in, clk, rst_n, ena};
