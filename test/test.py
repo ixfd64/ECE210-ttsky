@@ -42,15 +42,14 @@ async def test_project(dut):
     # test case: positive sum
     dut.ui_in.value = combine(0, 0)
     await Timer(1, units="ns")
-    assert (dut.uo_out.value.integer & 1) == 1, f"Test #1 failed: {dut.uo_out.value.integer}"
+    assert dut.uo_out.value.integer & 1 == 1, f"Test #1 failed: {dut.uo_out.value.integer}"
 
     # test case: zero sum
-    dut.ui_in.value = combine(0xE, 2)
+    dut.ui_in.value = combine(-2, 2)
     await Timer(1, units="ns")
-    assert (dut.uo_out.value.integer & 1) == 0, f"Test #2 failed: {dut.uo_out.value.integer}"
+    assert dut.uo_out.value.integer & 1 == 0, f"Test #2 failed: {dut.uo_out.value.integer}"
 
     # test case: double negative multiplication
-    dut.ui_in.value = combine(0xF, 0xF)
+    dut.ui_in.value = combine(-1, -1)
     await Timer(1, units="ns")
-    assert (dut.uo_out.value.integer & 1) == 1, f"Test #3 failed: {dut.uo_out.value.integer}"
-
+    assert dut.uo_out.value.integer & 1 == 1, f"Test #3 failed: {dut.uo_out.value.integer}"
