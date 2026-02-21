@@ -1,12 +1,6 @@
-# Sample testbench for a Tiny Tapeout project
+# Testbench for perceptron chip
 
-This is a sample testbench for a Tiny Tapeout project. It uses [cocotb](https://docs.cocotb.org/en/stable/) to drive the DUT and check the outputs.
-See below to get started or for more information, check the [website](https://tinytapeout.com/hdl/testing/).
-
-## Setting up
-
-1. Edit [Makefile](Makefile) and modify `PROJECT_SOURCES` to point to your Verilog files.
-2. Edit [tb.v](tb.v) and replace `tt_um_example` with your module name.
+This is a testbench that contains basic automated tests. It uses [cocotb](https://docs.cocotb.org/en/stable) to drive the DUT and check the outputs. See [this website](https://tinytapeout.com/hdl/testing) for additional details on testing Tiny Tapeout projects.
 
 ## How to run
 

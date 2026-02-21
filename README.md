@@ -1,10 +1,6 @@
-## Note: Project is WIP.
-
-![](https://i.kym-cdn.com/photos/images/newsfeed/000/401/369/ff0.png)
-
 # Implemention of a two-input perceptron in Verilog
 
-* **Version:** 1.0.0-beta.1
+* **Version:** 1.0.0
 * **Author:** Danny Chia
   * Project template by [Tiny Tapeout](https://tinytapeout.com)
 * **Date:** 2026-02-20
@@ -21,11 +17,15 @@ Each element is multiplied by a respective weight $w_i$ that determines its impo
 
 $$ y = f(\sum_{i = 1}^{n} w_ix_i + b) $$
 
-For binary classification models, the predicted class *y* is usually either $`y \in \{-1, 1\}`$ or $`y \in \{0, 1\}`$. We will use $`\{0, 1\}`$ for this project as it seems to be more common.
+For binary classification models, the predicted class *y* is usually either $`y \in \{-1, 1\}`$ or $`y \in \{0, 1\}`$. We will use $`\{0, 1\}`$ for this project as it seems to be more common. For simplicity's sake, the example in this project uses two inputs. In a real-world scenario, models will use perceptrons with far more inputs and weights.
 
 ## To use this code
 
-The code in this project can either be run as a standalone test called from other modules. Please see [docs/info.md](docs/info.md) for additional details.
+The code in this project can either be run as a standalone test or called from other modules. Please see [docs/info.md](docs/info.md) for additional details.
+
+## Interactive viewer
+
+* [Here](https://ixfd64.github.io/ECE210-ttsky) is a tool that can be used to explore the circuit in detail.
 
 ### Image credits
 
