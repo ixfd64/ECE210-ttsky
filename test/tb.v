@@ -22,7 +22,6 @@ module tb();
   // initialize test object
   tt_um_perceptron dut (
 
-
 `ifdef GL_TEST
     .VPWR(VPWR),
     .VGND(VGND),

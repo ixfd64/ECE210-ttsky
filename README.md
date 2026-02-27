@@ -1,9 +1,9 @@
-# Implemention of a two-input perceptron in Verilog
+# Implementation of a two-input perceptron in Verilog
 
 * **Version:** 1.0.0
 * **Author:** Danny Chia
   * Project template by [Tiny Tapeout](https://tinytapeout.com)
-* **Date:** 2026-02-20
+* **Date:** 2026-02-26
 
 This is a Verilog implementation of a perceptron with two inputs and two weights, created as part of an assignment for [ECE 210](https://catalog.ucsc.edu/en/current/general-catalog/courses/ece-electrical-and-computer-engineering/graduate/ece-210) at UC Santa Cruz during the winter 2026 quarter.
 
@@ -17,11 +17,15 @@ Each element is multiplied by a respective weight $w_i$ that determines its impo
 
 $$ y = f(\sum_{i = 1}^{n} w_ix_i + b) $$
 
-For binary classification models, the predicted class *y* is usually either $`y \in \{-1, 1\}`$ or $`y \in \{0, 1\}`$. We will use $`\{0, 1\}`$ for this project as it seems to be more common. For simplicity's sake, the example in this project uses two inputs. In a real-world scenario, models will use perceptrons with far more inputs and weights.
+For binary classification models, the predicted class *y* is usually either $`y \in \{-1, 1\}`$ or $`y \in \{0, 1\}`$. I decided to use $`\{0, 1\}`$ as this convention is more common. Please note the provided example is a proof of concept and does not support more than two inputs. In a real-world scenario, models will use perceptrons with far more inputs and weights. It is also possible to generalize perceptrons to support multiple classes, but that is beyond this project's scope.
 
 ## To use this code
 
-The code in this project can either be run as a standalone test or called from other modules. Please see [docs/info.md](docs/info.md) for additional details.
+The code in this project can either be run as a standalone test or called from other modules. See [docs/info.md](docs/info.md) for additional details.
+
+The timing diagram for the included Verilog code should look like this:
+
+![](assets/timings.png)
 
 ## Interactive viewer
 
@@ -30,3 +34,4 @@ The code in this project can either be run as a standalone test or called from o
 ### Image credits
 
 * Perceptron diagram by Martin Thoma (CC0 1.0 license, see [source](https://commons.wikimedia.org/wiki/File:Perceptron-unit.svg))
+* Timing diagram generated via [8bitworkshop](https://8bitworkshop.com)
