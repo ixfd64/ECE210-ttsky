@@ -3,7 +3,7 @@ project:
   title:        "Two-input Perceptron"
   author:       "Danny Chia"
   discord:      "ixfd64"
-  description:  "A simple implemention of a perceptron in Verilog"
+  description:  "A simple implementation of a perceptron in Verilog"
   language:     "Verilog"
   clock_hz:     0
 
