@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-24.04
     steps:
       - name: Checkout repo
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           submodules: recursive
 
@@ -23,7 +23,7 @@ jobs:
 
       # Set Python up and install cocotb
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v6
         with:
           python-version: '3.11'
 
@@ -40,14 +40,14 @@ jobs:
           ! grep failure results.xml
 
       - name: Test summary
-        uses: test-summary/action@v2.3
+        uses: test-summary/action@v2.6
         with:
           paths: "test/results.xml"
         if: always()
 
       - name: upload waveform and test results
         if: success() || failure()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: test-results
           path: |
